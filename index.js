@@ -5,7 +5,7 @@ const cors = require('cors')
 app.use(express.json());
 const port= process.env.PORT||3000;
 require("dotenv").config()
-app.use(cors());
+app.use(cors( {origin: 'https://mayurbhoi.com'}));
 const headers = {
        
     Authorization:process.env.GITHUB_TOKEN,
