@@ -1,7 +1,7 @@
 const express=require("express");
 const fetch=require("node-fetch");
 const app=express();
-const cors = require('cors')
+// const cors = require('cors')
 app.use(express.json());
 const port= process.env.PORT||3000;
 require("dotenv").config()
@@ -13,7 +13,7 @@ const headers = {
 app.get("/",async(req,res)=>{
     res.send(headers);
 })
-app.post("/getData",async(req,res,next)=>{
+app.post("/getData",async(req,res)=>{
     console.log("hello");
 
    
