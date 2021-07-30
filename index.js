@@ -37,20 +37,20 @@ app.post("/getData",async(req,res)=>{
         });
         
         const result =await response.json();
-        console.log(result);
+        
     
         commits = commits + result.length;
         lengthFlag = result.length;
         page++;
       } while (lengthFlag != 0);
         console.log(commits);
-        res.status(200).send({commits:commits});
-    //   res.sendStatus(200);
+        
+      res.send({commits});
     }
     catch(e){
         res.send(e);
     }
-    // next();
+    
 
 
 })
