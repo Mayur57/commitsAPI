@@ -1,10 +1,13 @@
 const express=require("express");
 const fetch=require("node-fetch");
 const app=express();
+const cors = require('cors')
 app.use(express.json());
 const port= process.env.PORT||3000;
 require("dotenv").config()
-app.post("/getData",async(req,res)=>{
+app.use(cors());
+app.post("/getData",async(req,res,next)=>{
+
     const headers = {
        
         Authorization: `${process.env.GITHUB_TOKEN}`,
@@ -40,6 +43,7 @@ app.post("/getData",async(req,res)=>{
     catch(e){
         res.send(e);
     }
+    // next();
 
 
 })
