@@ -5,13 +5,18 @@ const cors = require('cors')
 app.use(express.json());
 const port= process.env.PORT||3000;
 require("dotenv").config()
-app.use(cors());
-app.post("/getData",async(req,res,next)=>{
-
-    const headers = {
+// app.use(cors());
+const headers = {
        
-        Authorization: `${process.env.GITHUB_TOKEN}`,
-      };
+    Authorization:process.env.GITHUB_TOKEN,
+  };
+app.get("/",async(req,res)=>{
+    res.send(headers);
+})
+app.post("/getData",async(req,res,next)=>{
+    console.log("hello");
+
+   
 
       let page=1;
       let commits=0;
